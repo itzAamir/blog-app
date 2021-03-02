@@ -1,0 +1,32 @@
+.img-wrapper {
+   background: url("https://source.unsplash.com/1600x900/?nature") no-repeat
+      center center/cover;
+   background-color: #d3d3d3;
+   height: 50vh;
+   width: 100vw;
+   position: relative;
+}
+
+.registration-wrapper {
+   position: absolute;
+   top: 5rem;
+   width: 100%;
+   display: grid;
+   place-items: center;
+}
+
+.registration-card {
+   width: 40%;
+   max-width: 25rem;
+   min-width: 18rem;
+   background-color: white;
+   box-shadow: 1px 1px 10px black;
+   padding: 2rem;
+   border-radius: 0.5rem;
+}
+
+.btn-wrapper {
+   width: 100%;
+   display: grid;
+   place-items: center;
+}

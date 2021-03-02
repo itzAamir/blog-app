@@ -1,0 +1,8 @@
+#new-blog-section {
+   margin-top: 5rem;
+   /* border: 1px solid #000; */
+   width: 75%;
+   position: absolute;
+   right: 0;
+   padding: 2rem;
+}
