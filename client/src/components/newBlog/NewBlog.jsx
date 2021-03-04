@@ -42,10 +42,7 @@ const NewBlog = () => {
             privacy,
          };
          axios
-            .patch(
-               `https://blog-app-serve.herokuapp.com/app/newblog/${uid}`,
-               params
-            )
+            .patch(`/newblog/${uid}`, params)
             .then((res) => {
                e.target.reset();
                alert(res.data.data);

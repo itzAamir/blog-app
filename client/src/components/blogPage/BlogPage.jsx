@@ -22,7 +22,7 @@ const BlogPage = () => {
          setIsLoggedIn(true);
       }
 
-      const url = `https://blog-app-serve.herokuapp.com/app/blog/${id}`;
+      const url = `/blog/${id}`;
       axios
          .get(url)
          .then((res) => {

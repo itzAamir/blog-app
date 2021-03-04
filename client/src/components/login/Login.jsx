@@ -17,7 +17,7 @@ const Login = () => {
          password,
       };
       axios
-         .post("https://blog-app-serve.herokuapp.com/app/login", params, {
+         .post("/login", params, {
             withCredentials: true,
          })
          .then((res) => {

@@ -16,7 +16,7 @@ const Home = () => {
          setIsLoggedIn(false);
       } else {
          axios
-            .post("https://blog-app-serve.herokuapp.com/app/verifyCookie", {
+            .post("/verifyCookie", {
                cookie,
             })
             .then((res) => {

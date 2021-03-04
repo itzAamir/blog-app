@@ -25,7 +25,7 @@ const Registration = () => {
             password,
          };
          axios
-            .post("https://blog-app-serve.herokuapp.com/app/register", params)
+            .post("/register", params)
             .then((res) => {
                if (res.data.status === "error") {
                   alert(res.data.error);

@@ -6,7 +6,7 @@ const BlogWrapper = () => {
    const [cards, setCards] = useState("");
    useEffect(() => {
       axios
-         .get("https://blog-app-serve.herokuapp.com/app/blogs")
+         .get("/blogs")
          .then((res) => {
             const newBlogsArr = [];
             res.data.data.forEach((e) => {

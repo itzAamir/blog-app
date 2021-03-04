@@ -18,7 +18,7 @@ const MyBlogs = () => {
          setIsLoggedIn(true);
          let uid = JSON.parse(atob(cookie.split(".")[1])).id;
          axios
-            .get(`https://blog-app-serve.herokuapp.com/app/user-blogs/${uid}`)
+            .get(`/user-blogs/${uid}`)
             .then((res) => {
                setCard(
                   res.data.data.map((e) => <MyBlogCards key={e._id} data={e} />)

@@ -7,6 +7,9 @@ import NewBlog from "./components/newBlog/NewBlog";
 import MyBlogs from "./components/myBlogs/MyBlogs";
 import BlogPage from "./components/blogPage/BlogPage";
 import Error from "./components/Error 404";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:3001/app";
 
 const App = () => {
     return (
