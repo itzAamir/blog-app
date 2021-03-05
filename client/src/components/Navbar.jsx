@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Cookies from "js-cookie";
+import Hamburger from "./hamburger/Hamburger";
 
-const Navbar = () => {
+const Navbar = ({ onToggle }) => {
    const [isLoggedIn, setIsLoggedIn] = useState(false);
    const cookie = Cookies.get("uid");
 
@@ -21,6 +22,9 @@ const Navbar = () => {
 
    return (
       <nav className="navbar-dark bg-dark">
+         <div className="hamburger" onClick={() => onToggle()}>
+            <Hamburger />
+         </div>
          <div className="logo">
             <NavLink
                to={{
@@ -31,7 +35,8 @@ const Navbar = () => {
                <h1>Blogs</h1>
             </NavLink>
          </div>
-         <ul>
+
+         <ul class="nav-options">
             <li>
                <a
                   href="https://www.itzaamir.in"

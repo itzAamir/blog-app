@@ -10,6 +10,7 @@ import "./home.css";
 const Home = () => {
    const [isLoggedIn, setIsLoggedIn] = useState(true);
    const history = useHistory();
+
    useEffect(() => {
       const cookie = Cookies.get("uid");
       if (cookie === undefined) {
@@ -28,9 +29,13 @@ const Home = () => {
       }
    }, [history]);
 
+   const handleToggle = () => {
+      console.log("toggled");
+   };
+
    return (
       <section id="home-section">
-         <Navbar />
+         <Navbar onToggle={handleToggle} />
          <div className="main-section">
             <ProfileSection isLoggedIn={isLoggedIn} />
             <div className="blogs-section">

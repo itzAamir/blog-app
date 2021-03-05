@@ -25,6 +25,28 @@ nav li {
    list-style: none;
 }
 
+.hamburger {
+   display: none;
+}
+
+@media only screen and (max-width: 800px) {
+   .nav-options {
+      display: none;
+   }
+
+   .hamburger {
+      display: block;
+   }
+
+   .profile-section {
+      display: none;
+   }
+
+   .main-section {
+      grid-template-columns: 0fr 4fr !important;
+   }
+}
+
 html {
    background-color: #e4e2e2;
 }
