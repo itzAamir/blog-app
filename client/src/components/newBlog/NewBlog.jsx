@@ -11,6 +11,7 @@ const NewBlog = () => {
    const [isLoggedIn, setIsLoggedIn] = useState(true);
    const [uid, setUid] = useState("");
    const [username, setUsername] = useState("");
+   const [sideBarState, setSideBarState] = useState("hide");
    const history = useHistory();
 
    useEffect(() => {
@@ -52,10 +53,18 @@ const NewBlog = () => {
       }
    };
 
+   const handleToggle = () => {
+      if (sideBarState === "hide") {
+         setSideBarState("show");
+      } else {
+         setSideBarState("hide");
+      }
+   };
+
    return (
       <>
-         <Navbar />
-         <ProfileSection isLoggedIn={isLoggedIn} />
+         <Navbar onToggle={handleToggle} navState={sideBarState} />
+         <ProfileSection isLoggedIn={isLoggedIn} navState={sideBarState} />
          <section id="new-blog-section">
             <h1>New Article</h1>
             <Form onSubmit={handleSubmit} />

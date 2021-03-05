@@ -6,3 +6,13 @@
    right: 0;
    padding: 2rem;
 }
+
+@media only screen and (max-width: 800px) {
+   #new-blog-section {
+      margin-top: 4rem;
+      width: 100%;
+   }
+   .full-width {
+      width: 100%;
+   }
+}

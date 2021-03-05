@@ -13,6 +13,7 @@ const BlogPage = () => {
    const { id } = useParams();
    const [data, setData] = useState("");
    const [isLoggedIn, setIsLoggedIn] = useState(false);
+   const [sideBarState, setSideBarState] = useState("hide");
    const cookie = Cookies.get("uid");
 
    useEffect(() => {
@@ -31,10 +32,18 @@ const BlogPage = () => {
          .catch((err) => console.error(err));
    }, [id, cookie]);
 
+   const handleToggle = () => {
+      if (sideBarState === "hide") {
+         setSideBarState("show");
+      } else {
+         setSideBarState("hide");
+      }
+   };
+
    return (
       <>
-         <Navbar />
-         <ProfileSection isLoggedIn={isLoggedIn} />
+         <Navbar onToggle={handleToggle} navState={sideBarState} />
+         <ProfileSection isLoggedIn={isLoggedIn} navState={sideBarState} />
          <section id="blog-page">
             <div className="blog-title">
                <h2>{data.title}</h2>

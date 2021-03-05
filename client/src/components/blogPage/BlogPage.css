@@ -5,3 +5,9 @@
    width: 75%;
    padding: 1rem;
 }
+
+@media only screen and (max-width: 800px) {
+   #blog-page {
+      width: 100%;
+   }
+}

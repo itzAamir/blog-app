@@ -9,6 +9,7 @@ import MyBlogCards from "./MyBlogCards";
 
 const MyBlogs = () => {
    const [isLoggedIn, setIsLoggedIn] = useState(false);
+   const [sideBarState, setSideBarState] = useState("hide");
    const [card, setCard] = useState("");
    const cookie = Cookies.get("uid");
    const history = useHistory();
@@ -30,10 +31,18 @@ const MyBlogs = () => {
       }
    }, [cookie, history]);
 
+   const handleToggle = () => {
+      if (sideBarState === "hide") {
+         setSideBarState("show");
+      } else {
+         setSideBarState("hide");
+      }
+   };
+
    return (
       <>
-         <Navbar />
-         <ProfileSection isLoggedIn={isLoggedIn} />
+         <Navbar onToggle={handleToggle} navState={sideBarState} />
+         <ProfileSection isLoggedIn={isLoggedIn} navState={sideBarState} />
          <section id="my-blogs-section">
             <div className="blog-wrapper">{card}</div>
          </section>

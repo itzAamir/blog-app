@@ -17,9 +17,10 @@ const Form = ({ onSubmit }) => {
                className="form-control"
                id="blog-title"
                placeholder="Enter cool title."
+               maxLength="50"
             />
             <small className="form-text text-muted">
-               Max length: 30 characters
+               Max length: 50 characters
             </small>
          </div>
          <div className="mb-3">
@@ -80,7 +81,7 @@ const Form = ({ onSubmit }) => {
                </label>
             </div>
          </div>
-         <button type="submit" className="btn btn-success mt-4">
+         <button type="submit" className="btn btn-success mt-4 full-width">
             Publish
          </button>
       </form>
