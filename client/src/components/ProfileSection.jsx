@@ -19,8 +19,9 @@ const LoggedOut = () => {
    );
 };
 
-const ProfileSection = ({ isLoggedIn }) => {
+const ProfileSection = ({ isLoggedIn, navState }) => {
    const [username, setUsername] = useState("");
+
    useEffect(() => {
       const cookie = Cookies.get("uid");
       if (cookie !== undefined) {
@@ -31,7 +32,7 @@ const ProfileSection = ({ isLoggedIn }) => {
 
    return (
       <>
-         <div className="profile-section">
+         <div className={`profile-section ${navState}`}>
             {!isLoggedIn ? (
                <LoggedOut />
             ) : (

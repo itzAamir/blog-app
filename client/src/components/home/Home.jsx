@@ -9,6 +9,7 @@ import "./home.css";
 
 const Home = () => {
    const [isLoggedIn, setIsLoggedIn] = useState(true);
+   const [sideBarState, setSideBarState] = useState("hide");
    const history = useHistory();
 
    useEffect(() => {
@@ -30,14 +31,18 @@ const Home = () => {
    }, [history]);
 
    const handleToggle = () => {
-      console.log("toggled");
+      if (sideBarState === "hide") {
+         setSideBarState("show");
+      } else {
+         setSideBarState("hide");
+      }
    };
 
    return (
       <section id="home-section">
-         <Navbar onToggle={handleToggle} />
+         <Navbar onToggle={handleToggle} navState={sideBarState} />
          <div className="main-section">
-            <ProfileSection isLoggedIn={isLoggedIn} />
+            <ProfileSection isLoggedIn={isLoggedIn} navState={sideBarState} />
             <div className="blogs-section">
                <BlogWrapper />
             </div>

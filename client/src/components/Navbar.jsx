@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Cookies from "js-cookie";
-import Hamburger from "./hamburger/Hamburger";
+import * as fa from "react-icons/fa";
+import { CgClose } from "react-icons/cg";
 
-const Navbar = ({ onToggle }) => {
+const Navbar = ({ onToggle, navState }) => {
    const [isLoggedIn, setIsLoggedIn] = useState(false);
    const cookie = Cookies.get("uid");
 
@@ -23,7 +24,11 @@ const Navbar = ({ onToggle }) => {
    return (
       <nav className="navbar-dark bg-dark">
          <div className="hamburger" onClick={() => onToggle()}>
-            <Hamburger />
+            {navState === "hide" ? (
+               <fa.FaBars style={{ height: "1.7rem", width: "1.7rem" }} />
+            ) : (
+               <CgClose style={{ height: "1.7rem", width: "1.7rem" }} />
+            )}
          </div>
          <div className="logo">
             <NavLink
@@ -36,7 +41,7 @@ const Navbar = ({ onToggle }) => {
             </NavLink>
          </div>
 
-         <ul class="nav-options">
+         <ul className="nav-options">
             <li>
                <a
                   href="https://www.itzaamir.in"

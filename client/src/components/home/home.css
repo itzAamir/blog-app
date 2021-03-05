@@ -29,24 +29,6 @@ nav li {
    display: none;
 }
 
-@media only screen and (max-width: 800px) {
-   .nav-options {
-      display: none;
-   }
-
-   .hamburger {
-      display: block;
-   }
-
-   .profile-section {
-      display: none;
-   }
-
-   .main-section {
-      grid-template-columns: 0fr 4fr !important;
-   }
-}
-
 html {
    background-color: #e4e2e2;
 }
@@ -178,4 +160,37 @@ footer {
    display: flex;
    justify-content: center;
    align-items: center;
+}
+
+@media only screen and (max-width: 800px) {
+   .nav-options {
+      display: none;
+   }
+
+   .hamburger {
+      display: block;
+   }
+
+   .profile-section {
+      z-index: 1;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+   }
+
+   .main-section {
+      grid-template-columns: 0fr 4fr !important;
+   }
+
+   .hide {
+      left: -100%;
+      transition: 300ms;
+   }
+
+   .show {
+      left: 0;
+      transition: 500ms;
+   }
 }
