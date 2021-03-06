@@ -9,7 +9,11 @@ import BlogPage from "./components/blogPage/BlogPage";
 import Error from "./components/Error 404";
 import axios from "axios";
 
+// Production
 axios.defaults.baseURL = "https://react-blogging-app.herokuapp.com/app";
+
+// Development
+// axios.defaults.baseURL = "http://localhost:3001/app";
 
 const App = () => {
     return (

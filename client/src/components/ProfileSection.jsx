@@ -21,7 +21,7 @@ const LoggedOut = () => {
 
 const ProfileSection = ({ isLoggedIn, navState }) => {
    const [username, setUsername] = useState("");
-   const [screenWidth, setScreenWidth] = useState("");
+   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
    const handleLogout = () => {
       document.title = "Logging Out...";
@@ -41,7 +41,6 @@ const ProfileSection = ({ isLoggedIn, navState }) => {
       };
 
       window.addEventListener("resize", screenSetter);
-
       return () => window.removeEventListener("resize", screenSetter);
    }, []);
    const picUrl = `https://ui-avatars.com/api/?name=${username}&rounded=true&bold=true&background=e4e2e2&color=6c757d&length=2&size=50`;
@@ -127,7 +126,7 @@ const ProfileSection = ({ isLoggedIn, navState }) => {
                   Log Out
                </button>
             ) : (
-               ""
+               <></>
             )}
             <footer>© 2021 Copyright: itzAamir</footer>
          </div>
