@@ -49,7 +49,7 @@ const Form = ({ onSubmit }) => {
                className="form-control"
                rows="10"
                id="blog-markdown"
-               placeholder="#The Quick Brown Fox Jumps Over The Lazy Dog..."
+               placeholder="# The Quick Brown Fox Jumps Over The Lazy Dog..."
             />
          </div>
          <legend>Do you want to make it public or private?</legend>

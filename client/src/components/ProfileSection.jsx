@@ -21,12 +21,28 @@ const LoggedOut = () => {
 
 const ProfileSection = ({ isLoggedIn, navState }) => {
    const [username, setUsername] = useState("");
+   const [screenWidth, setScreenWidth] = useState("");
+
+   const handleLogout = () => {
+      document.title = "Logging Out...";
+      document.cookie = "uid= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+      window.location = "/";
+      document.title = "Blog-App";
+   };
 
    useEffect(() => {
       const cookie = Cookies.get("uid");
       if (cookie !== undefined) {
          setUsername(JSON.parse(atob(cookie.split(".")[1])).username);
       }
+
+      const screenSetter = () => {
+         setScreenWidth(window.innerWidth);
+      };
+
+      window.addEventListener("resize", screenSetter);
+
+      return () => window.removeEventListener("resize", screenSetter);
    }, []);
    const picUrl = `https://ui-avatars.com/api/?name=${username}&rounded=true&bold=true&background=e4e2e2&color=6c757d&length=2&size=50`;
 
@@ -96,6 +112,22 @@ const ProfileSection = ({ isLoggedIn, navState }) => {
                      </NavLink>
                   </div>
                </>
+            )}
+            {isLoggedIn && screenWidth <= 800 ? (
+               <button
+                  className="btn btn-danger full-width"
+                  style={{
+                     position: "absolute",
+                     bottom: "0",
+                     left: "0",
+                     borderRadius: "0",
+                  }}
+                  onClick={handleLogout}
+               >
+                  Log Out
+               </button>
+            ) : (
+               ""
             )}
             <footer>© 2021 Copyright: itzAamir</footer>
          </div>
