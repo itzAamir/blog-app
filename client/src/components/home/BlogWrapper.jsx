@@ -8,23 +8,9 @@ const BlogWrapper = () => {
       axios
          .get("/blogs")
          .then((res) => {
-            const newBlogsArr = [];
-            res.data.data.forEach((e) => {
-               newBlogsArr.push(e.blogs);
-            });
-            const finalBlogsArr = [];
-            newBlogsArr.forEach((e, i) => {
-               finalBlogsArr.push(...newBlogsArr[i]);
-            });
-            if (finalBlogsArr.length !== 0) {
-               setCards(
-                  finalBlogsArr
-                     .filter((elem) => elem.privacy === "public")
-                     .map((e) => <BlogCards key={e._id} data={e} />)
-               );
-            } else {
-               setCards(<h1>No Blogs To Show</h1>);
-            }
+            setCards(
+               res.data.data.map((e) => <BlogCards key={e._id} data={e} />)
+            );
          })
          .catch((err) => console.error(err));
    }, []);

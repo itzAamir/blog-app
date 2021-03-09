@@ -27,7 +27,7 @@ const BlogPage = () => {
       axios
          .get(url)
          .then((res) => {
-            setData(res.data.blogs.filter((e) => e._id === id)[0]);
+            setData(res.data.data);
          })
          .catch((err) => console.error(err));
    }, [id, cookie]);

@@ -29,7 +29,7 @@ const MyBlogs = () => {
       } else {
          history.push("/login");
       }
-   }, [cookie, history]);
+   }, [cookie, history, card]);
 
    const handleToggle = () => {
       if (sideBarState === "hide") {

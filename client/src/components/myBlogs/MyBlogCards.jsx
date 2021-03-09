@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Cookies from "js-cookie";
@@ -12,15 +13,22 @@ const MyBlogCards = ({ data }) => {
    const badgeClass =
       privacy === "public" ? "badge badge-primary" : "badge badge-secondary";
 
-   const handleDelete = () => {
-      console.log(data._id);
-   };
-
    useEffect(() => {
       if (cookie) {
          setUsername(JSON.parse(atob(cookie.split(".")[1])).username);
       }
    }, [cookie]);
+
+   const handleDelete = () => {
+      const isDelete = window.confirm("Are you sure about this?");
+      if (isDelete)
+         axios
+            .delete(`/blog/${_id}`)
+            .then((res) => {
+               alert(res.data.data);
+            })
+            .catch((err) => alert(err));
+   };
 
    return (
       <div>

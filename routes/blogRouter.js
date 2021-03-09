@@ -1,12 +1,12 @@
 const express = require("express");
 const blogRouter = express.Router();
-const Register = require("../models/Registers.js");
+const Blog = require("../models/Blog.js");
 
 blogRouter.get("/:id", async (req, res) => {
     const { id } = req.params;
     try {
-        const data = await Register.findOne({ "blogs._id": id });
-        res.send(data);
+        const data = await Blog.findById(id);
+        res.status(200).json({ status: "ok", data })
     } catch (error) {
         res.send(error)
     }
@@ -15,8 +15,8 @@ blogRouter.get("/:id", async (req, res) => {
 blogRouter.delete("/:id", async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await Register.deleteOne({ "blogs._id": id });
-        res.send(result);
+        const result = await Blog.findByIdAndDelete(id);
+        res.status(200).json({ status: "ok", data: "Deleted" });
     } catch (error) {
         res.send(error);
     }
