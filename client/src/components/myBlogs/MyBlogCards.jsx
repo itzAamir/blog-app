@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { IconButton } from "@material-ui/core";
 import Cookies from "js-cookie";
 import { NavLink } from "react-router-dom";
 
@@ -17,6 +18,7 @@ const MyBlogCards = ({ data }) => {
       if (cookie) {
          setUsername(JSON.parse(atob(cookie.split(".")[1])).username);
       }
+      return "";
    }, [cookie]);
 
    const handleDelete = () => {
@@ -48,11 +50,18 @@ const MyBlogCards = ({ data }) => {
                </NavLink>
                {username === data.author ? (
                   <div className="icons-wrapper">
-                     <EditIcon style={{ cursor: "pointer" }} />
-                     <DeleteIcon
-                        style={{ fill: "red", cursor: "pointer" }}
-                        onClick={handleDelete}
-                     />
+                     <NavLink
+                        to={{
+                           pathname: `edit/${_id}`,
+                        }}
+                     >
+                        <IconButton>
+                           <EditIcon />
+                        </IconButton>
+                     </NavLink>
+                     <IconButton onClick={handleDelete}>
+                        <DeleteIcon style={{ fill: "red" }} />
+                     </IconButton>
                   </div>
                ) : (
                   ""

@@ -11,11 +11,11 @@ loginRouter.post("/", async (req, res) => {
         const validUser = await bcrypt.compare(password, user.password);
         if (validUser) {
             token = await jwt.sign({ id: user._id, username: user.username }, process.env.JWT_SECRET, {
-                expiresIn: "1d"
+                expiresIn: "1y"
             });
 
             res.cookie("uid", token, {
-                expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
+                expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
                 httpOnly: false
             });
 

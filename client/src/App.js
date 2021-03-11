@@ -6,14 +6,15 @@ import Home from "./components/home/Home";
 import NewBlog from "./components/newBlog/NewBlog";
 import MyBlogs from "./components/myBlogs/MyBlogs";
 import BlogPage from "./components/blogPage/BlogPage";
+import EditPage from "./components/editPage/EditPage";
 import Error from "./components/Error 404";
 import axios from "axios";
 
 // Production
-axios.defaults.baseURL = "https://react-blogging-app.herokuapp.com/app";
+axios.defaults.baseURL = "https://react-blogging-app.herokuapp.com/api";
 
 // Development
-// axios.defaults.baseURL = "http://localhost:3001/app";
+// axios.defaults.baseURL = "http://localhost:3001/api";
 
 const App = () => {
     return (
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/registration" component={Registration} />
             <Route path="/login" component={Login} />
             <Route path="/create-blog" component={NewBlog} />
+            <Route path="/edit/:id" component={EditPage} />
             <Route path="/my-blogs" component={MyBlogs} />
             <Route path="/blogs/:id" component={BlogPage} />
             <Route component={Error} />

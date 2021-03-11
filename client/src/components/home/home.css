@@ -76,15 +76,6 @@ html {
    margin-right: 1rem;
 }
 
-.icons-wrapper {
-   position: absolute;
-   bottom: 1.2rem;
-   right: 1rem;
-   display: flex;
-   width: 3.2rem;
-   justify-content: space-between;
-}
-
 /* Profile-Section */
 .profile-section {
    grid-area: profile;

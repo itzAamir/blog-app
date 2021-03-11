@@ -11,7 +11,7 @@ const path = require("path");
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({ origin: true, credentials: true }));
-app.use("/app", router);
+app.use("/api", router);
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "client", "build")));

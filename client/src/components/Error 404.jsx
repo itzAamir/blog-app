@@ -1,10 +1,26 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Error = () => {
    return (
-      <div>
+      <section
+         style={{
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+         }}
+      >
          <h1>Page Not Found</h1>
-      </div>
+         <NavLink
+            to={{
+               pathname: "/",
+            }}
+         >
+            Go Back
+         </NavLink>
+      </section>
    );
 };
 

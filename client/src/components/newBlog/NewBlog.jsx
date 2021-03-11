@@ -43,10 +43,10 @@ const NewBlog = () => {
             privacy,
          };
          axios
-            .patch(`/newblog/${uid}`, params)
+            .post(`/newblog/${uid}`, params)
             .then((res) => {
                e.target.reset();
-               alert(res.data.data);
+               alert(res.data.status);
                history.push("/my-blogs");
             })
             .catch((err) => alert(err));

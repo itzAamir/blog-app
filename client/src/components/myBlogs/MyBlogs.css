@@ -4,6 +4,14 @@
    width: 75%;
 }
 
+.icons-wrapper {
+   position: absolute;
+   bottom: 0.4rem;
+   right: 1rem;
+   display: flex;
+   justify-content: space-between;
+}
+
 @media only screen and (max-width: 800px) {
    #my-blogs-section {
       width: 100%;

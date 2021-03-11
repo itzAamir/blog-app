@@ -29,6 +29,7 @@ const MyBlogs = () => {
       } else {
          history.push("/login");
       }
+      return "";
    }, [cookie, history, card]);
 
    const handleToggle = () => {

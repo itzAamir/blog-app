@@ -28,6 +28,7 @@ const Home = () => {
             })
             .catch((err) => console.error(err));
       }
+      return "";
    }, [history]);
 
    const handleToggle = () => {
