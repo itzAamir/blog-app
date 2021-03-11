@@ -79,7 +79,6 @@ const Form = ({ onSubmit, id }) => {
                   name="inlineRadioOptions"
                   id="public"
                   value="public"
-                  defaultChecked
                />
                <label className="form-check-label" htmlFor="public">
                   Public
@@ -92,6 +91,7 @@ const Form = ({ onSubmit, id }) => {
                   name="inlineRadioOptions"
                   id="private"
                   value="private"
+                  defaultChecked={true}
                />
                <label className="form-check-label" htmlFor="private">
                   Private
