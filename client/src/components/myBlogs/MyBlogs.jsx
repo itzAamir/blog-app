@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import { useHistory } from "react-router-dom";
 import "./MyBlogs.css";
 import MyBlogCards from "./MyBlogCards";
+import NoData from "../NoData";
 
 const MyBlogs = () => {
    const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,22 +16,31 @@ const MyBlogs = () => {
    const history = useHistory();
 
    useEffect(() => {
+      const abortCtrl = new AbortController();
+      const opts = { signal: abortCtrl.signal };
       if (cookie) {
          setIsLoggedIn(true);
          let uid = JSON.parse(atob(cookie.split(".")[1])).id;
          axios
-            .get(`/user-blogs/${uid}`)
+            .get(`/user-blogs/${uid}`, opts)
             .then((res) => {
-               setCard(
-                  res.data.data.map((e) => <MyBlogCards key={e._id} data={e} />)
-               );
+               console.log("ok");
+               if (res.data.data.length === 0) {
+                  setCard(<NoData />);
+               } else {
+                  setCard(
+                     res.data.data.map((e) => (
+                        <MyBlogCards key={e._id} data={e} />
+                     ))
+                  );
+               }
             })
             .catch((err) => console.error(err));
       } else {
          history.push("/login");
       }
-      return "";
-   }, [cookie, history, card]);
+      return () => abortCtrl.abort();
+   }, [cookie, history]);
 
    const handleToggle = () => {
       if (sideBarState === "hide") {

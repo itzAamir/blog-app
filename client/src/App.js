@@ -11,10 +11,10 @@ import Error from "./components/Error 404";
 import axios from "axios";
 
 // Production
-// axios.defaults.baseURL = "https://react-blogging-app.herokuapp.com/api";
+axios.defaults.baseURL = "https://react-blogging-app.herokuapp.com/api";
 
 // Development
-axios.defaults.baseURL = "http://localhost:3001/api";
+// axios.defaults.baseURL = "http://localhost:3001/api";
 
 const App = () => {
     return (

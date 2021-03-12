@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import BlogCards from "./BlogCards";
+import NoData from "../NoData";
 
 const BlogWrapper = () => {
    const [cards, setCards] = useState("");
@@ -8,9 +9,13 @@ const BlogWrapper = () => {
       axios
          .get("/blogs")
          .then((res) => {
-            setCards(
-               res.data.data.map((e) => <BlogCards key={e._id} data={e} />)
-            );
+            if (res.data.data.length === 0) {
+               setCards(<NoData />);
+            } else {
+               setCards(
+                  res.data.data.map((e) => <BlogCards key={e._id} data={e} />)
+               );
+            }
          })
          .catch((err) => console.error(err));
    }, []);
