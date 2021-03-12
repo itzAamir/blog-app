@@ -65,7 +65,7 @@ const EditPage = () => {
             <Navbar onToggle={handleToggle} navState={sideBarState} />
             <ProfileSection isLoggedIn={isLoggedIn} navState={sideBarState} />
             <section id="new-blog-section">
-               <h1>New Article</h1>
+               <h1>Edit Article</h1>
                <EditForm onSubmit={handleSubmit} id={blogId} />
                <button
                   onClick={handleCancel}
