@@ -24,7 +24,6 @@ const MyBlogs = () => {
          axios
             .get(`/user-blogs/${uid}`, opts)
             .then((res) => {
-               console.log("ok");
                if (res.data.data.length === 0) {
                   setCard(<NoData />);
                } else {
@@ -40,7 +39,7 @@ const MyBlogs = () => {
          history.push("/login");
       }
       return () => abortCtrl.abort();
-   }, [cookie, history]);
+   }, [cookie, history, card]);
 
    const handleToggle = () => {
       if (sideBarState === "hide") {
