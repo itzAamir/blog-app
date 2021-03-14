@@ -91,7 +91,7 @@ const ProfileSection = ({ isLoggedIn, navState }) => {
                      </NavLink>
                      <NavLink
                         to={{
-                           pathname: "/",
+                           pathname: "/theme",
                         }}
                      >
                         <span className="profile-section-utils-icons">
@@ -101,7 +101,7 @@ const ProfileSection = ({ isLoggedIn, navState }) => {
                      </NavLink>
                      <NavLink
                         to={{
-                           pathname: "/",
+                           pathname: "/settings",
                         }}
                      >
                         <span className="profile-section-utils-icons">

@@ -1,0 +1,15 @@
+#settings-page{
+    margin-top: 5rem;
+    position: absolute;
+    right: 0;
+    width: 75%;
+    display: grid;
+    place-items: center;
+    height: 80vh;
+}
+
+@media only screen and (max-width: 800px) {
+    #settings-page {
+       width: 100%;
+    }
+ }

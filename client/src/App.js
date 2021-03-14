@@ -7,6 +7,8 @@ import NewBlog from "./components/newBlog/NewBlog";
 import MyBlogs from "./components/myBlogs/MyBlogs";
 import BlogPage from "./components/blogPage/BlogPage";
 import EditPage from "./components/editPage/EditPage";
+import SettingPage from "./components/settingsPage/SettingsPage";
+import ThemesPage from "./components/themesPage/ThemesPage";
 import Error from "./components/Error 404";
 import axios from "axios";
 
@@ -26,6 +28,8 @@ const App = () => {
             <Route path="/edit/:id" component={EditPage} />
             <Route path="/my-blogs" component={MyBlogs} />
             <Route path="/blogs/:id" component={BlogPage} />
+            <Route path="/settings" component={SettingPage} />
+            <Route path="/theme" component={ThemesPage} />
             <Route component={Error} />
         </Switch>
     )

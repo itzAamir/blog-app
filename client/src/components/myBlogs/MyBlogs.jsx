@@ -16,13 +16,11 @@ const MyBlogs = () => {
    const history = useHistory();
 
    useEffect(() => {
-      const abortCtrl = new AbortController();
-      const opts = { signal: abortCtrl.signal };
       if (cookie) {
          setIsLoggedIn(true);
          let uid = JSON.parse(atob(cookie.split(".")[1])).id;
          axios
-            .get(`/user-blogs/${uid}`, opts)
+            .get(`/user-blogs/${uid}`)
             .then((res) => {
                if (res.data.data.length === 0) {
                   setCard(<NoData />);
@@ -38,7 +36,6 @@ const MyBlogs = () => {
       } else {
          history.push("/login");
       }
-      return () => abortCtrl.abort();
    }, [cookie, history, card]);
 
    const handleToggle = () => {
