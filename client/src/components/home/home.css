@@ -11,6 +11,7 @@ nav {
    position: fixed;
    top: 0;
    z-index: 5;
+   box-shadow: 0 1px 5px black;
 }
 
 nav ul {
@@ -35,7 +36,7 @@ html {
 
 /* Body CSS */
 .main-section {
-   height: 90vh;
+   height: 100vh;
    display: grid;
    grid-template-areas:
       "profile blogs"
@@ -56,6 +57,7 @@ html {
    padding: 1rem 1rem 0 1rem;
    gap: 2rem;
    width: 100%;
+   /* height: 100vh; */
    justify-content: center;
    background-color: #e4e2e2;
    padding-top: 5rem;

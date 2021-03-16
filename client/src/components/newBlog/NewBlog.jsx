@@ -13,6 +13,7 @@ const NewBlog = () => {
    const [username, setUsername] = useState("");
    const [sideBarState, setSideBarState] = useState("hide");
    const history = useHistory();
+   const theme = localStorage.getItem("theme-mode");
 
    useEffect(() => {
       const cookie = Cookies.get("uid");
@@ -65,7 +66,10 @@ const NewBlog = () => {
       <>
          <Navbar onToggle={handleToggle} navState={sideBarState} />
          <ProfileSection isLoggedIn={isLoggedIn} navState={sideBarState} />
-         <section id="new-blog-section">
+         <section
+            id="new-blog-section"
+            className={theme === "dark" ? "bg-dark text-light" : null}
+         >
             <h1>New Article</h1>
             <Form onSubmit={handleSubmit} />
          </section>

@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import "./MyBlogs.css";
 import MyBlogCards from "./MyBlogCards";
 import NoData from "../NoData";
+import COLORS from "../../utils/COLORS";
 
 const MyBlogs = () => {
    const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -14,6 +15,7 @@ const MyBlogs = () => {
    const [card, setCard] = useState("");
    const cookie = Cookies.get("uid");
    const history = useHistory();
+   const theme = localStorage.getItem("theme-mode");
 
    useEffect(() => {
       if (cookie) {
@@ -50,8 +52,16 @@ const MyBlogs = () => {
       <>
          <Navbar onToggle={handleToggle} navState={sideBarState} />
          <ProfileSection isLoggedIn={isLoggedIn} navState={sideBarState} />
-         <section id="my-blogs-section">
-            <div className="blog-wrapper">{card}</div>
+         <section
+            id="my-blogs-section"
+            style={{ background: theme === "dark" && COLORS.navDarkBg }}
+         >
+            <div
+               className="blog-wrapper"
+               style={{ background: theme === "dark" && COLORS.navDarkBg }}
+            >
+               {card}
+            </div>
          </section>
       </>
    );

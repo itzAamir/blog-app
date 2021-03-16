@@ -31,12 +31,12 @@
 
    .login-illustration {
       width: 100%;
-      height: 100%;
+      height: 80%;
       grid-area: img;
    }
 
    .login-wrapper {
-      margin-top: 0;
+      margin-top: -3rem;
       grid-area: login;
    }
 }

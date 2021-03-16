@@ -11,6 +11,7 @@ const Home = () => {
    const [isLoggedIn, setIsLoggedIn] = useState(true);
    const [sideBarState, setSideBarState] = useState("hide");
    const history = useHistory();
+   const theme = localStorage.getItem("theme-mode");
 
    useEffect(() => {
       const cookie = Cookies.get("uid");
@@ -44,7 +45,7 @@ const Home = () => {
          <Navbar onToggle={handleToggle} navState={sideBarState} />
          <div className="main-section">
             <ProfileSection isLoggedIn={isLoggedIn} navState={sideBarState} />
-            <div className="blogs-section">
+            <div className={`blogs-section ${theme === "dark" && "bg-dark"}`}>
                <BlogWrapper />
             </div>
          </div>

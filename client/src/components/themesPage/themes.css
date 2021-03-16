@@ -1,11 +1,11 @@
 #themes-page{
-    margin-top: 5rem;
+    margin-top: 4rem;
     position: absolute;
     right: 0;
     width: 75%;
-    display: grid;
-    place-items: center;
-    height: 80vh;
+    display: flex;
+    height: 90%;
+    padding: 2rem;
 }
 
 @media only screen and (max-width: 800px) {

@@ -13,6 +13,8 @@ const EditPage = () => {
    const blogId = useParams().id;
    const [isLoggedIn, setIsLoggedIn] = useState(true);
    const [sideBarState, setSideBarState] = useState("hide");
+   const theme = localStorage.getItem("theme-mode");
+
    useEffect(() => {
       if (cookie === undefined) {
          setIsLoggedIn(false);
@@ -64,7 +66,10 @@ const EditPage = () => {
          <>
             <Navbar onToggle={handleToggle} navState={sideBarState} />
             <ProfileSection isLoggedIn={isLoggedIn} navState={sideBarState} />
-            <section id="new-blog-section">
+            <section
+               id="new-blog-section"
+               className={theme === "dark" ? "bg-dark text-light" : null}
+            >
                <h1>Edit Article</h1>
                <EditForm onSubmit={handleSubmit} id={blogId} />
                <button

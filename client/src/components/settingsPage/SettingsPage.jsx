@@ -10,6 +10,7 @@ const SettingsPage = () => {
    const [sideBarState, setSideBarState] = useState("hide");
    const cookie = Cookies.get("uid");
    const history = useHistory();
+   const theme = localStorage.getItem("theme-mode");
 
    useEffect(() => {
       if (cookie) {
@@ -31,8 +32,12 @@ const SettingsPage = () => {
       <>
          <Navbar onToggle={handleToggle} navState={sideBarState} />
          <ProfileSection isLoggedIn={isLoggedIn} navState={sideBarState} />
-         <section id="settings-page">
-            <h1>Settings page is under development 🥺 </h1>
+         <section
+            id="settings-page"
+            className={theme === "dark" ? "bg-dark" : null}
+            style={{ color: theme === "dark" && "white" }}
+         >
+            <h2>Settings page is under development 🥺 </h2>
          </section>
       </>
    );

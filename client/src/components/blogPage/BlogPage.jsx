@@ -15,6 +15,7 @@ const BlogPage = () => {
    const [isLoggedIn, setIsLoggedIn] = useState(false);
    const [sideBarState, setSideBarState] = useState("hide");
    const cookie = Cookies.get("uid");
+   const theme = localStorage.getItem("theme-mode");
 
    useEffect(() => {
       if (!cookie) {
@@ -44,7 +45,11 @@ const BlogPage = () => {
       <>
          <Navbar onToggle={handleToggle} navState={sideBarState} />
          <ProfileSection isLoggedIn={isLoggedIn} navState={sideBarState} />
-         <section id="blog-page">
+         <section
+            id="blog-page"
+            className={theme === "dark" ? "bg-dark" : null}
+            style={{ color: theme === "dark" && "white" }}
+         >
             <div className="blog-title">
                <h2>{data.title}</h2>
                <span className="text-muted">

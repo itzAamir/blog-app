@@ -1,8 +1,9 @@
 #blog-page {
    position: absolute;
    right: 0;
-   top: 5rem;
+   top: 4rem;
    width: 75%;
+   min-height: 100%;
    padding: 1rem;
 }
 

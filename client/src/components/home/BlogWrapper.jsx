@@ -4,6 +4,7 @@ import BlogCards from "./BlogCards";
 import NoData from "../NoData";
 
 const BlogWrapper = () => {
+   const theme = localStorage.getItem("theme-mode");
    const [cards, setCards] = useState("");
    useEffect(() => {
       axios
@@ -19,7 +20,12 @@ const BlogWrapper = () => {
          })
          .catch((err) => console.error(err));
    }, []);
-   return <div className="blog-wrapper">{cards}</div>;
+
+   return (
+      <div className={`blog-wrapper ${theme === "dark" && "bg-dark"}`}>
+         {cards}
+      </div>
+   );
 };
 
 export default BlogWrapper;

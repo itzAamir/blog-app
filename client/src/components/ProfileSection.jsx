@@ -6,13 +6,14 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import { NavLink } from "react-router-dom";
 import Cookies from "js-cookie";
 import HomeIcon from "@material-ui/icons/Home";
+import COLORS from "../utils/COLORS";
 
 const LoggedOut = () => {
    return (
       <div className="logged-out-profile-section">
          <p>
             <b>
-               <a href="/login">login</a> to become cool
+               <a href="/login">login</a> for extra features
             </b>
          </p>
       </div>
@@ -22,6 +23,7 @@ const LoggedOut = () => {
 const ProfileSection = ({ isLoggedIn, navState }) => {
    const [username, setUsername] = useState("");
    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+   const theme = localStorage.getItem("theme-mode");
 
    const handleLogout = () => {
       document.title = "Logging Out...";
@@ -47,7 +49,13 @@ const ProfileSection = ({ isLoggedIn, navState }) => {
 
    return (
       <>
-         <div className={`profile-section ${navState}`}>
+         <div
+            className={`profile-section ${navState}`}
+            style={{
+               background: theme === "dark" && COLORS.extremeDarkBg,
+               color: theme === "dark" && COLORS.fontColor,
+            }}
+         >
             {!isLoggedIn ? (
                <LoggedOut />
             ) : (
@@ -56,7 +64,11 @@ const ProfileSection = ({ isLoggedIn, navState }) => {
                      <img src={picUrl} alt="profile" />
                      <h4>{username}</h4>
                   </div>
-                  <hr />
+                  <hr
+                     style={{
+                        color: "white",
+                     }}
+                  />
                   <div className="new-blog-btn-wrapper">
                      <NavLink
                         to={{

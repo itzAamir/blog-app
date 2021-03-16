@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 import "./Registration.css";
 import axios from "axios";
 
@@ -105,6 +105,14 @@ const Registration = () => {
                         Register
                      </button>
                   </form>
+                  Already registered?{" "}
+                  <NavLink
+                     to={{
+                        pathname: "/login",
+                     }}
+                  >
+                     login
+                  </NavLink>
                </div>
             </div>
          </div>

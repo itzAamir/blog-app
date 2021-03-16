@@ -5,11 +5,13 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { IconButton } from "@material-ui/core";
 import Cookies from "js-cookie";
 import { NavLink } from "react-router-dom";
+import COLORS from "../../utils/COLORS";
 
 const MyBlogCards = ({ data }) => {
    const [username, setUsername] = useState("");
    const { _id, title, description, privacy } = data;
    const cookie = Cookies.get("uid");
+   const theme = localStorage.getItem("theme-mode");
 
    const badgeClass =
       privacy === "public" ? "badge badge-primary" : "badge badge-secondary";
@@ -33,8 +35,15 @@ const MyBlogCards = ({ data }) => {
    };
 
    return (
-      <div>
-         <div className="card" style={{ width: "100%" }}>
+      <>
+         <div
+            className="card"
+            style={{
+               width: "100%",
+               color: theme === "dark" && COLORS.fontColor,
+               background: theme === "dark" && COLORS.extremeDarkBg,
+            }}
+         >
             {/* <img
                className="card-img-top"
                src="https://www.picsum.photos/500"
@@ -56,7 +65,11 @@ const MyBlogCards = ({ data }) => {
                         }}
                      >
                         <IconButton>
-                           <EditIcon />
+                           <EditIcon
+                              style={{
+                                 fill: theme === "dark" && COLORS.fontColor,
+                              }}
+                           />
                         </IconButton>
                      </NavLink>
                      <IconButton onClick={handleDelete}>
@@ -68,7 +81,7 @@ const MyBlogCards = ({ data }) => {
                )}
             </div>
          </div>
-      </div>
+      </>
    );
 };
 
