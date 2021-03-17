@@ -4,8 +4,46 @@
     right: 0;
     width: 75%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     height: 90%;
     padding: 2rem;
+}
+
+#dropdown-basic{
+    width: 15rem;
+}
+
+.dropdown-menu{
+    width: 100%;
+}
+
+.theme-illustration{
+    background: #6c757d;
+    height: 15rem;
+    width: 15rem;
+    padding: 2rem;
+    border-radius: 5px;
+    margin-bottom: .4rem;
+}
+
+.equal-width{
+    width: 15rem;
+    text-align: center;
+}
+
+.working, .sleeping{
+    height: 100%;
+    width: 100%;
+}
+
+.working{
+    background: url("../../images/working.png") no-repeat center center/cover;
+}
+
+.sleeping{
+    background: url("../../images/sleeping.png") no-repeat center center/cover;
 }
 
 @media only screen and (max-width: 800px) {

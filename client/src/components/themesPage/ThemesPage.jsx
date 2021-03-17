@@ -47,14 +47,29 @@ const ThemesPage = () => {
          <ProfileSection isLoggedIn={isLoggedIn} navState={sideBarState} />
          <section
             id="themes-page"
-            className={theme === "dark" ? "bg-dark" : null}
+            className={theme === "dark" ? "bg-dark text-white" : null}
          >
-            <div className="theme-title">
-               <DropDown
-                  onThemeChange={handleThemeChange}
-                  currentTheme={themeMode}
-               />
+            <div className="theme-illustration">
+               <div className={theme === "dark" ? "working" : "sleeping"}></div>
             </div>
+            <p className="mb-5 equal-width">
+               {theme === "light" ? (
+                  <>
+                     {" "}
+                     <b>Want to wake him up?</b> Change the theme to dark-mode
+                     👇{" "}
+                  </>
+               ) : (
+                  <b>Better 😉 </b>
+               )}
+            </p>
+            <DropDown
+               onThemeChange={handleThemeChange}
+               currentTheme={themeMode}
+            />
+            <em className="equal-width">
+               *Theme settings will be saved for your next visit
+            </em>
          </section>
       </>
    );
