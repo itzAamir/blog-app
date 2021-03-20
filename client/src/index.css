@@ -8,3 +8,17 @@
    display: grid;
    place-items: center;
 }
+
+.spinner-wrapper {
+   margin-top: 4rem;
+   height: 60vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 1.4rem;
+}
+
+.spinner-border {
+   width: 3rem;
+   height: 3rem;
+}

@@ -1,15 +1,19 @@
-#settings-page{
-    margin-top: 4rem;
-    position: absolute;
-    right: 0;
-    width: 75%;
-    display: grid;
-    place-items: center;
-    height: 90%;
+#settings-page {
+   margin-top: 4rem;
+   position: absolute;
+   right: 0;
+   width: 75%;
+   display: grid;
+   place-items: center;
+   height: 90%;
+}
+
+#settings-page h2 {
+   text-align: center;
 }
 
 @media only screen and (max-width: 800px) {
-    #settings-page {
-       width: 100%;
-    }
- }
+   #settings-page {
+      width: 100%;
+   }
+}

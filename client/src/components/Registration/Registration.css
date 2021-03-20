@@ -8,8 +8,11 @@
 }
 
 @media only screen and (max-width: 800px) {
-   .img-wrapper{
+   .img-wrapper {
       height: 100vh;
+   }
+   .registration-card {
+      min-width: 21rem;
    }
 }
 
@@ -22,7 +25,7 @@
 }
 
 .registration-card {
-   min-width: 21rem;
+   min-width: 25rem;
    background-color: white;
    box-shadow: 1px 1px 10px black;
    padding: 2rem;

@@ -38,6 +38,7 @@
 .sleeping {
    height: 100%;
    width: 100%;
+   transition: ease 1s;
 }
 
 .working {

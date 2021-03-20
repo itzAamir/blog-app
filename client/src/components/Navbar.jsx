@@ -48,7 +48,7 @@ const Navbar = ({ onToggle, navState }) => {
                   target="_blank"
                   rel="noreferrer"
                >
-                  About
+                  FOUNDER
                </a>
             </li>
             <input

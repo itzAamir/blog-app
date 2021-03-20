@@ -124,7 +124,7 @@ const ProfileSection = ({ isLoggedIn, navState }) => {
                   </div>
                </>
             )}
-            {isLoggedIn && screenWidth <= 800 ? (
+            {isLoggedIn && screenWidth <= 800 && (
                <button
                   className="btn btn-danger full-width"
                   style={{
@@ -137,8 +137,6 @@ const ProfileSection = ({ isLoggedIn, navState }) => {
                >
                   Log Out
                </button>
-            ) : (
-               <></>
             )}
             <footer>© 2021 Copyright: itzAamir</footer>
          </div>

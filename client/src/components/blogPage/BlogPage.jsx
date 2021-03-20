@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar";
 import ProfileSection from "../ProfileSection";
+// import CommentSection from "../CommentSection";
 import "./BlogPage.css";
 import Markdown from "react-markdown";
 import { useParams } from "react-router-dom";
